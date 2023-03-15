@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CO2 Emission Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}" type="text/css">
+</head>
+
+<body style="background-image: linear-gradient(to right ,#533243, #243D61); margin-top:200px;">
+ <div class="login" style="text-align: center;">
+	<h1 style="color: #ffffff; font-size: 50px;">Predict CO2 Emission <br> of Vehicles</h1>
+     <h3 style="color: #ffffff;"> Enter the following values to predict <br> the CO2 emission from the vehicle</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+      <div class="content" style="margin-left: 600px;">
+    	  <input style="display: block; width: 300px; height: 30px; margin-top: 10px;" type="text" name="enginesize" placeholder="Engine Size" required="required" />
+        <input style="display: block; width: 300px; height: 30px; margin-top: 10px;" type="text" name="cylinders" placeholder="Cylinders" required="required" />
+		    <input style="display: block; width: 300px; height: 30px; margin-top: 10px;" type="text" name="fuel" placeholder="Fuel" required="required" />
+      </div>
+      <button type="submit" class="btn" style="margin-top: 20px; width: 150px; height: 30px; margin-left: -13px;">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  <div style="color: white;">
+    {{ prediction_text }}
+  </div>
+
+ </div>
+
+
+</body>
+</html>
